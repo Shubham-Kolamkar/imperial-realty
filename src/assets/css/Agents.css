@@ -1,0 +1,257 @@
+.agents-page {
+  padding-bottom: 60px;
+}
+
+/* Page Header */
+.page-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Agents Intro */
+.agents-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.agents-intro h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.agents-intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Agents Grid */
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* Agent Card */
+.agent-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.agent-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.agent-image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.agent-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.agent-card:hover .agent-image img {
+  transform: scale(1.05);
+}
+
+.agent-social {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 20px 15px 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.agent-card:hover .agent-social {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.agent-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.agent-social a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.agent-info {
+  padding: 25px;
+}
+
+.agent-info h3 {
+  color: var(--primary-color);
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+.agent-title {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.agent-contact {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.agent-contact p {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  color: #555;
+}
+
+.agent-contact i {
+  color: var(--primary-color);
+  margin-right: 10px;
+  width: 20px;
+}
+
+.agent-bio {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.agent-specialties h4 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.agent-specialties ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.agent-specialties li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.agent-specialties li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.agent-card .btn {
+  width: 100%;
+}
+
+/* Join Team Section */
+.join-team-section {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 60px;
+  text-align: center;
+  margin-top: 40px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.join-team-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.join-team-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.join-team-section p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .agents-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .join-team-section {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 40px 0;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .agents-intro h2 {
+    font-size: 1.8rem;
+  }
+  
+  .agents-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .join-team-section {
+    padding: 30px 20px;
+  }
+  
+  .join-team-section h2 {
+    font-size: 1.8rem;
+  }
+}
