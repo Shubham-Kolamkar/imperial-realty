@@ -10,14 +10,32 @@ const Header = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
+      
+      // Close menu and remove body class when resizing to desktop
+      if (window.innerWidth > 768 && menuOpen) {
+        setMenuOpen(false);
+        document.body.classList.remove('menu-open');
+      }
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      // Clean up body class when component unmounts
+      document.body.classList.remove('menu-open');
+    };
+  }, [menuOpen]);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    const newMenuState = !menuOpen;
+    setMenuOpen(newMenuState);
+    
+    // Add or remove body class to prevent scrolling when menu is open
+    if (newMenuState) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
   };
 
   return (

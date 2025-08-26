@@ -10,7 +10,7 @@ const Agents = () => {
       title: 'Senior Real Estate Agent',
       phone: '(555) 123-4567',
       email: 'sarah@imperialrealty.com',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       bio: 'Sarah has over 15 years of experience in luxury real estate. She specializes in high-end residential properties and has consistently been a top producer in the market.',
       specialties: ['Luxury Homes', 'Waterfront Properties', 'Investment Properties'],
       socialMedia: {
@@ -125,8 +125,21 @@ const Agents = () => {
         <div className="agents-grid">
           {agents.map(agent => (
             <div className="agent-card" key={agent.id}>
-              <div className="agent-image">
-                <img src={agent.image} alt={agent.name} />
+              <div className="agent-image rectangular-image" style={{ borderRadius: 0, overflow: 'hidden' }}>
+                <div style={{ width: '100%', height: '100%', overflow: 'hidden' }} className="rectangular-image">
+                  <img 
+                    src={agent.image} 
+                    alt={agent.name} 
+                    className="rectangular-image"
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover',
+                      borderRadius: 0,
+                      clipPath: 'none'
+                    }} 
+                  />
+                </div>
                 <div className="agent-social">
                   <a href={agent.socialMedia.facebook || "https://facebook.com"} aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                   <a href={agent.socialMedia.twitter || "https://twitter.com"} aria-label="Twitter"><i className="fab fa-twitter"></i></a>
@@ -150,7 +163,9 @@ const Agents = () => {
                     ))}
                   </ul>
                 </div>
-                <button className="btn btn-primary">Contact {agent.name.split(' ')[0]}</button>
+                <div className="agent-button-container">
+                  <button className="btn btn-primary">Contact {agent.name.split(' ')[0]}</button>
+                </div>
               </div>
             </div>
           ))}

@@ -43,7 +43,7 @@
 /* Agents Grid */
 .agents-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
   margin-bottom: 60px;
 }
@@ -55,6 +55,9 @@
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .agent-card:hover {
@@ -66,6 +69,17 @@
   position: relative;
   height: 300px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+}
+
+.agent-image::before,
+.agent-image::after {
+  display: none !important;
 }
 
 .agent-image img {
@@ -73,6 +87,22 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  border-radius: 0 !important;
+  shape-outside: none !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+/* Custom class to override any potential styling */
+.rectangular-image {
+  border-radius: 0 !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  shape-outside: none !important;
 }
 
 .agent-card:hover .agent-image img {
@@ -118,6 +148,8 @@
 
 .agent-info {
   padding: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .agent-info h3 {
@@ -185,6 +217,10 @@
   font-weight: bold;
 }
 
+.agent-button-container {
+  margin-top: auto;
+}
+
 .agent-card .btn {
   width: 100%;
 }
@@ -223,10 +259,19 @@
 @media (max-width: 992px) {
   .agents-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   
   .join-team-section {
     padding: 40px;
+  }
+  
+  .agent-info {
+    padding: 20px 15px;
+  }
+  
+  .agent-image {
+    height: 250px;
   }
 }
 
@@ -245,6 +290,37 @@
   
   .agents-grid {
     grid-template-columns: 1fr;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .agent-image {
+    height: 220px;
+  }
+  
+  .agent-info {
+    padding: 15px;
+  }
+  
+  .agent-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .agent-title {
+    font-size: 0.9rem;
+  }
+  
+  .agent-contact p {
+    font-size: 0.9rem;
+  }
+  
+  .agent-bio {
+    font-size: 0.9rem;
+  }
+  
+  .agent-specialties li {
+    font-size: 0.9rem;
   }
   
   .join-team-section {
